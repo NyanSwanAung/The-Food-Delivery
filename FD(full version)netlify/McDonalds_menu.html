@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/nav.css">
+    <link rel="stylesheet" type="text/css" href="CSS/shopping_cart_dialog.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Menu/SeasonsBistro_Homemenu.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Menu/menu_header.css">
+    
+    <script type = text/javascript src="Javascripts/Menu/SeasonsBistro.js" async></script>
+
+    <link href="bootstrap/v3/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+
+    <!-- Bootstrap  -->  
+    <link href="bootstrap/v3/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/barn/0.2.3/barn.min.js"></script>
+    <script type="text/javascript" src="bootstrap/v3/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/v3/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    <title>Menu</title>
+</head>
+    
+
+<header>
+    <img src="../../Pictures/Headers/Header_white.png" width = "100%"/>
+</header>
+<nav>
+    <ul id="nav_ul">
+        <li><a class="nav_text" onclick = "passDate();" href="home.html">Home</a></li>
+        <li><a class="nav_text" onclick = "passDate();" href="SeasonsBistro_Homemenu.html">Menu</a></li>
+        <li><a class="nav_text" onclick = "passDate();" href="company.html">Restaurants</a></li>
+        <li><a class="nav_text" onclick = "passDate();" href="home.html#find">Find us</a></li>
+        <li><a class="nav_text" onclick = "passDate();" href="home.html#contact">Contact us</a></li>
+        <li><a class = "shopping_cart_icon" onclick="show_modal()" href="#"><span class="badge">0</span>Shopping Cart</a></li>
+
+    <!------------------------ The Modal ------------------------------>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+
+            <!----------------------Modal Header --------------------------->
+                <div class="modal-header">
+                <span class="close" onclick="close_modal()">&times;</span>
+                <h2>Cart</h2>
+                </div>
+
+                <!----------------------Modal Body --------------------------->
+                <div class="modal-body">
+                    <div class="cart-row">
+                    <span class="cart-item cart-header cart-column">ITEM</span>
+                    <span class="cart-price cart-header cart-column">PRICE</span>
+                    <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                </div>
+                <div class="cart-items">
+           
+                </div>
+                <div class="cart-items">
+           
+                </div>
+                <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">MMK 0</span>
+                </div>
+                </div>
+            <!----------------------Modal Body 2 --------------------------->
+            <div class="modal-body2">
+                    <span class = "cart-header" >Select Your Delivery Time</span>
+                    <br></br>
+                    <form class="form-horizontal"  role="form">
+                      <div class="form-group">
+                          <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                              <input id = 'tdyDate' class="form-control" size="16" type="text" value="" readonly>
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                          </div>
+                          
+                      </div>
+                   </form>
+                   <input style = "margin-left: 24%" class="btn btn-primary btn-purchase" type="submit" value="Check Out" onclick="ValidateCart();">
+                <input style = "margin-left: 10%" class="btn btn-primary btn-cancelDelivery" type="submit" value="Cancel Delivery">
+                 </div>     
+            </div>
+        </div> 
+    </ul>
+</nav>
+
+<body>
+    <button onclick = "topFunction()" id="myBtn" title="Go Home">go top</button>
+    <div id="main-menuIMG-container">
+            <img src="Pictures/Seasons/cake_menu3.jpg" width="0" height="0px" >
+                <div class="centered"><blockquote class="glow">McDonald's</blockquote></div>
+    </div>
+    <div class = "button_container">
+        
+        <button class="restaurantName_btn active"  onclick="location.href='McDonalds_menu.html'"> <span>McDonald's</span> </button>
+        <button class="restaurantName_btn"  onclick="location.href='MSeasonsBistro_menu.html'"> <span>Seasons Bistro</span> </button>
+        
+    </div>   
+    <div class="alert-message-container">
+    </div>
+    <div id="alert-area" class="alert-area">
+    </div>
+    <div class="main-container">
+        <div class = 'main-layout-container'style="background-color:#efeff5;padding: 5% 0 5% 0">
+            <div class = "layout-container" style="margin-top:5%">
+                <div class = "layout">
+                    <div class="time-hover">
+                        <div class="textT">30 mins</div>
+                        <div> <img src="Pictures/Menu/McDonalds/Buttered-Green-Beans- Fries.jpg" width="250px" height="200px" class="imground"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="title">FRIES, BEANS</div>
+                        <blockquote class="name">Green Beans Fries</blockquote>
+                    </div>
+                    <div style="margin-left: 80px">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>   
+                    <p class="p1">With Green Beans and Butter</p>
+                    <p class="price">MMK 3500</p>
+                    <div class="addToCart_btn od">
+                        <i class =  "fa fa-shopping-cart" style="font-size:24px"></i>
+                        <span style="font-size: 18px;margin-bottom: 6px; cursor: pointer">   Order</span>
+                    </div>
+                </div>
+                <div class = "layout">
+                    <div class="time-hover">
+                        <div class="textT">45 mins</div>
+                        <div> <img src="Pictures/Menu/McDonalds/Chili-Sausage-Pizza.jpg" width="250px" height="200px" class="imground"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="title">PIZZA, SAUSAGE</div>
+                        <blockquote class="name">Chilli Sausage Pizza</blockquote></div>
+                        <div style="margin-left: 80px">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>   
+                        <p class="p1">With Sausage and Chilli</p> 
+                        <p class="price">MMK 3500</p>
+                        <div class="addToCart_btn od">
+                            <i class =  "fa fa-shopping-cart" style="font-size:24px"></i>
+                            <span style="font-size: 18px;margin-bottom: 6px; cursor: pointer">   Order</span>
+                        </div>
+                </div>
+                <div class = "layout">
+                    <div class="time-hover">
+                        <div class="textT">30 mins</div>
+                        <div> <img src="Pictures/Menu/McDonalds/Doggy-style-hotdog.jpg" width="250px" height="200px" class="imground"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="title">HOTDOG, SAUSAGE</div>
+                        <blockquote class="name">Doggy HotDog</blockquote></div>
+                        <div style="margin-left: 80px">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>   
+                        <p class="p1">With Mayonnaise & Sausage</p> 
+                        <p class="price">MMK 3500</p>
+                        <div class="addToCart_btn od">
+                            <i class =  "fa fa-shopping-cart" style="font-size:24px"></i>
+                            <span style="font-size: 18px;margin-bottom: 6px; cursor: pointer">   Order</span>
+                        </div>
+                </div>
+            </div>
+            <div class = "layout-container" style="margin-top:5%">
+                <div class = "layout">
+                    <div class="time-hover">
+                        <div class="textT">35 mins</div>
+                        <div> <img src="Pictures/Menu/McDonalds/Grilled-Buffalo-Cheese.jpg" width="250px" height="200px" class="imground"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="title">PIE , MEAT</div>
+                        <blockquote class="name">Grilled Buffalo Cheese</blockquote>
+                    </div>
+                    <div style="margin-left: 80px">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>   
+                    <p class="p1">With Extra Cheese and Beef</p> 
+                    <p class="price">MMK 3500</p>
+                    <div class="addToCart_btn od">
+                        <i class =  "fa fa-shopping-cart" style="font-size:24px"></i>
+                        <span style="font-size: 18px;margin-bottom: 6px; cursor: pointer">   Order</span>
+                    </div>
+                </div>
+                <div class = "layout">
+                    <div class="time-hover">
+                        <div class="textT">30 mins</div>
+                        <div> <img src="Pictures/Menu/McDonalds/Original-Chessy-hotdog.jpg" width="250px" height="200px" class="imground"></div>
+                    </div>
+                    <br>
+                    <div>
+                    <div class="title">HOTDOG, SAUSAGE</div>
+                        <blockquote class="name">Cheesy Hotdog</blockquote>
+                    </div>
+                    <div style="margin-left: 80px">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>   
+                    <p class="p1">With Sausage and Cheese</p> 
+                    <p class="price">MMK 3500</p>
+                    <div class="addToCart_btn od">
+                        <i class =  "fa fa-shopping-cart" style="font-size:24px"></i>
+                        <span style="font-size: 18px;margin-bottom: 6px; cursor: pointer">Order</span>
+                    </div>
+                </div>
+                <div class = "layout">
+                    <div class="time-hover">
+                        <div class="textT">60-65 mins</div>
+                        <div> <img src="Pictures/Menu/McDonalds/Salsa-Black-Bean-Burger.jpg" width="250px" height="200px" class="imground"></div>
+                        </div>
+                            <br>
+                    <div>
+                    <div class="title">BURGER, MEAT</div>
+                        <blockquote class="name">Salsa Black Bean Burger</blockquote>
+                    </div>
+                    <div style="margin-left: 80px">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>   
+                    <p class="p1">With Pork and Bean</p> 
+                    <p class="price">MMK 3500</p>
+                    <div class="addToCart_btn od">
+                        <i class =  "fa fa-shopping-cart" style="font-size:24px"></i>
+                        <span style="font-size: 18px;margin-bottom: 6px; cursor: pointer">   Order</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-recom-container">
+            <blockquote class="top-recom-text">Top Recommendation</blockquote>
+            <div class="recom-food-container" style="margin: 3% 0 0 7%" >
+                    <img src="Pictures/Menu/McDonalds/recommendation/fries.jpg"  alt="Hot Dog" class="recom-food-image" style="width:100%">
+                    <div class="time-container">
+                        <span style="color: white">40 mins</span>
+                    </div>
+                    <div class="RecommaddToCart_btn  textBtn-container">
+                        <div class="recom-food-price">MMK 4000</div> 
+                        <div class="recom-text-cart">Add To Cart</div>
+                    </div>     
+                    <div><blockquote class="recom-food-name">Calamari Hamburger</blockquote></div>
+                    <div style="margin-left: 32.5%">
+                        
+                        <span style="margin-left:-50%;" class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+            </div>
+            <div class="recom-food-container" style="margin: 3% 0 0 11%" >
+                    <img src="Pictures/Menu/McDonalds/recommendation/patty.jpg"  alt="Hot Dog" class="recom-food-image" style="width:100%">
+                    <div class="time-container">
+                        <span style="color: white">40 mins</span>
+                    </div>
+                    <div class="RecommaddToCart_btn textBtn-container">
+                        <div class="recom-food-price">MMK 4500</div> 
+                        <div class=" recom-text-cart">Add To Cart</div>
+                    </div>     
+                    <div><blockquote class="recom-food-name">Patty Mayonnaise Burger</blockquote></div>
+                    <div style="margin-left: 32.5%">
+                        
+                        <span style="margin-left:-50%" class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+            </div>
+            <div class="recom-food-container" style="margin: 3% 0 0 11%" >
+                <img src="Pictures/Menu/McDonalds/recommendation/beef.jpg"  alt="Hot Dog" class="recom-food-image" style="width:100%">
+                <div class="time-container">
+                    <span style="color: white">35 mins</span>
+                </div>
+                <div class="RecommaddToCart_btn  textBtn-container">
+                    <div class="recom-food-price">MMK 4500</div> 
+                    <div class="recom-text-cart">Add To Cart</div>
+                </div>     
+                <div><blockquote class="recom-food-name">Korean Beef Burger</blockquote></div>
+                <div style="margin-left: 32.5%">
+                    
+                    <span style="margin-left:-50%" class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    
+<footer>
+        <script type="text/javascript">
+            var modal = document.getElementById("myModal");
+             /********  Bootstrap   *******/
+    $('.form_datetime').datetimepicker({
+          
+          weekStart: 1,
+          todayBtn:  1,
+          autoclose: 1,
+          todayHighlight: 1,
+          startView: 2,
+          forceParse: 0,
+          showMeridian: 1
+          });
+    $('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+        });
+    $('.form_time').datetimepicker({
+          language:  'fr',
+          weekStart: 1,
+          todayBtn:  1,
+          autoclose: 1,
+          todayHighlight: 1,
+          startView: 1,
+          minView: 0,
+          maxView: 1,
+          forceParse: 0
+          });
+
+    var time  =  sessionStorage.getItem("Delivery-Time");
+    $(".form_datetime").datetimepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true
+    }).datetimepicker("update", time);           
+  
+        </script>
+            <br /><br /><br />
+
+        <div style="margin-top:55%; background:  #009d83; padding: 5% 0 0 0">
+            <p id="footer-t1">Yangon, Myanmar</p>
+            <p id="footer-t2">Call us 24/7</p>
+            
+            <div>
+                <p id="footer-t3"> 21<sup>st</sup> Dhama Seti Road
+                <img src="Pictures/Headers/Header_white.png" style="align-content: center;
+                margin-top: -46px;margin-left: 1%; width: 274px; height: 49px;" ><img src="Pictures/Homepage/call_icon.png" height="20px" width="auto" style="margin-bottom: -5px;">
+                    
+                                09 766102646</p>
+            </div>    
+            <center>         
+            <div class="icon-container">
+                <a class="icon_btn1" href="https://twitter.com/TDeli2019/"> <i class="fa fa-twitter"></i></a>
+                <a class="icon_btn1" href="https://www.instagram.com/thefooddeli19/"> <i class="fa fa-instagram"></i></a>
+                <a class="icon_btn1" href="https://facebook.com"> <i class="fa fa-facebook"></i></a>
+            </div>
+            </center>   
+        
+            <p style="margin-top:1%;text-align: center;">&copy; 2018 Copyright  by The FOOD Delivery </p>
+        </div>  
+</footer>
+    
+
+</html>

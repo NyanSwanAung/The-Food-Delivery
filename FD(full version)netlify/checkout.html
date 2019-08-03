@@ -1,0 +1,162 @@
+<html>
+<html lang="en">
+<head>
+    <title>Check Out Page</title>
+    <link rel="stylesheet"	type="text/css" href="CSS/checkout_page.css">
+    <link rel="stylesheet" type="text/css" href="CSS/iconstyle.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/shopping_cart_dialog.css">
+
+    <script type = "text/javascript" src="Javascripts/checkout.js" async></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- Bootstrap  -->  
+      <link href="bootstrap/v3/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/barn/0.2.3/barn.min.js"></script>
+      <script type="text/javascript" src="bootstrap/v3/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+      <script type="text/javascript" src="bootstrap/v3/bootstrap/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+      <script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    
+</head>
+<body> 
+    <div class="alert-message-container">
+    </div>
+    <div id="alert-area" class="alert-area">
+    </div>
+    <div>
+        <div class="row">
+            <div class="column left" style="background-color:none;">
+                <p id="top-text">Approximate Delivery Time: <span id="delivery-time"></span>  </p>  
+                <p id="fill">Please Fill Up Your Information</p><br/><br/>
+                <form action="testing.html">
+                    <input class = "textbox" id = "tb1" type="text" name="firstname" placeholder="First Name">
+                    <input class = "textbox" id = "tb2" type="text" name="secondname" placeholder="Last Name">
+                    <br /><br /><br />
+                    
+                    <input class = "textbox" id = "tb3" type="text" name="phone no1" placeholder="Phone Number1">
+                    <input class = "textbox" id = "tb4" type="text" name="phone no2" placeholder="Phone Number2(optional)">
+                     <br />
+                </form>    
+            </div>   
+            <div id ='Address-container'>
+                <blockquote style="color:whitesmoke; margin:7% 0 0 5%;font-size: 20px;">Type of Address</blockquote>
+                <select class = "location" style="margin:2.5% 0 0 5%;">
+                    <option value=""disabled selected>Choose your place type</option>
+                    <option> Residential</option>
+                    <option> Hotel</option>
+                    <option> Hospital</option>
+                    <option> Apartment</option>
+                </select>
+             
+                <input class="addressno" id = "tb5" type="text" name="address no" placeholder="Address No." />
+                <input class="city" id = "tb6" type="text" name="city" placeholder="City" />
+                <input class="township" id = "tb7" type="text" name="township" placeholder="Township" />
+            </div>   
+            <br><br /><br><br />
+            
+            <div id="button-container">
+                <a href = "SeasonsBistro_Homemenu.html" class="button-text">Continue Order</a>
+                <a class="button-text" onclick = "passValues();">Purchase</a>
+                <a class = "button-text" onclick="show_modal()" href="#">Order Summary</a>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+          
+                        <!----------------------Modal Header --------------------------->
+                        <div class="modal-header">
+                        <span class="close" onclick="close_modal()">&times;</span>
+                        <h2>Cart</h2>
+                        </div>
+          
+                         <!----------------------Modal Body --------------------------->
+                        <div class="modal-body">
+                            <div class="cart-row">
+                            <span class="cart-item cart-header cart-column">ITEM</span>
+                            <span class="cart-price cart-header cart-column">PRICE</span>
+                            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                        </div>
+                        <div class="cart-items">
+                        </div>
+                        <div class="cart-items">
+                        </div>
+                        <div class="cart-total">
+                            <strong class="cart-total-title">Food Price</strong>
+                            <span style = "font-size: 16px" class="cart-total-price total-price"  id="total-priceID">MMK 0</span>
+                            <br><br>
+                            <strong  class="cart-total-title">Delivery Charges(  <span style='font-size: 19px;'class = 'cart-total-price'></span> )</strong>
+                            <span style = "font-size: 16px" class = 'cart-total-price' id="delivery-charges">MMK 0</span> 
+                            <br><br>
+                            <strong  style='color:dodgerblue' class="cart-total-title">Total Amount</strong>
+                            <span style = "font-size: 16px" class = 'cart-total-price' id="total-charges">MMK 0</span>
+                        </div>
+                        </div>
+                     <!----------------------Modal Footer --------------------------->
+                        <div class="modal-footer">
+                                
+                            <input style = "margin: 0 0 2% 35%" class="btn btn-primary btn-cancelDelivery" type="submit" value="Cancel Delivery">
+                        </div>
+                        </div>
+                    </div> 
+            </div>
+            <br<br/><br /><br><br /><br/>
+        </div>	    
+    </div>
+</body>
+
+<footer style="text-align: center;color: white"> 
+    &copy; 2018 Copyright  by  The FOOD Delivery
+ </footer>	    	
+
+<script type="text/javascript">
+    var selectedLocation;
+    $(document).ready(function(){
+    $("select.location").change(function(){
+        selectedLocation = $(this).children("option:selected").val();
+        sessionStorage.setItem('SelectBox', selectedLocation);
+    });
+}); 
+</script>
+
+<script type="text/javascript">
+    var modal = document.getElementById("myModal");
+    document.getElementById("delivery-time").innerHTML = sessionStorage.getItem("Delivery-Time");
+    document.getElementById("tb7").value = sessionStorage.getItem('user-location');
+
+
+    /**** BOOTSTRAP****/
+    $('.form_datetime').datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+        });
+    $('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+        });
+    $('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        minView: 0,
+        maxView: 1,
+        forceParse: 0
+        });
+    
+    
+</script>
+
+</html>

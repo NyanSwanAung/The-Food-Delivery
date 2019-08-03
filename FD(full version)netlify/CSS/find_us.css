@@ -1,0 +1,70 @@
+ #mapimg
+  {
+        margin-top: 10%;
+        margin-left: 4%;
+  }
+  				
+  i{color:black;
+    font-size:1.25em;
+    margin:24.5%
+}
+p{margin-top:10%;text-align: center;}
+
+footer{margin-top: 20%}
+
+
+#map_text{margin-left:-5%;
+          margin-top:13%;
+          margin-bottom:10%
+          }
+
+
+#visit_us_text{float:right;
+               font-family: "Lucida Grande";
+               margin-right:37%;
+               margin-top:10%;
+               }
+
+
+#location_text1{float:right;
+               font-family: "Lucida Grande";
+               margin-right:30px;
+               margin-top:10%;
+               margin-left:15px;
+               
+               }
+.contact{
+         display: flex;
+        }
+
+
+#location_text2{float:right;
+               font-family: "Lucida Grande";
+               margin-right:31%;
+               margin-top:-25%;
+               margin-left:0;
+               }
+               
+#location_text3{float:right;
+                font-family: "Lucida Grande";
+                margin-right:28.5%;
+                margin-top:-25%;
+                margin-left:0%;
+               }
+               
+#location_text4{float:right;
+               font-family: "Lucida Grande";
+               margin-right:32.5%;
+               margin-top:-25%;
+               margin-left:0%;
+               }                              
+               
+
+#text_border{border-style:solid;
+             float:right;
+             margin-top: 60%;
+             margin-right: 8%;
+             border-width:thin;
+             padding:0 15px 0px -20px; }
+
+

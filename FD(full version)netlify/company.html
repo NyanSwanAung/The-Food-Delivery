@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/nav.css">
+    <link rel="stylesheet" type="text/css" href="CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="CSS/company.css">
+    <link rel="stylesheet" type="text/css" href="CSS/shopping_cart_dialog.css">
+
+    
+    <script type = "text/javascript" src="Javascripts/company.js" async ></script>
+    
+
+    
+    
+    <!-- Bootstrap  -->  
+    
+    <link href="bootstrap/v3/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="bootstrap/v3/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/v3/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Restaurants</title>
+</head>
+
+<header>
+        <img src="Pictures/Headers/Header_white.png" width = "100%"/>
+</header>
+
+<nav>
+<ul id="nav_ul">
+        <li><a class="nav_text" onclick = "passDate();" href="home.html">Home</a></li>
+        <li><a class="nav_text" onclick = "ValidateLocation()" href="#">Menu</a></li>
+        <li><a class="nav_text" href="company.html">Restaurants</a></li>
+        <li><a class="nav_text" onclick = " passDate();" href="home.html#find">Find us</a></li>
+        <li><a class="nav_text" onclick = " passDate();" href="home.html#contact">Contact us</a></li>
+        <li><a class = "shopping_cart_icon" onclick="show_modal();" href="#"><span id = "badgeID" class="badge" >0</span>Shopping Cart</a></li>
+
+    <!------------------------ The Modal ------------------------------>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+
+        <!----------------------Modal Header --------------------------->
+        <div class="modal-header">
+            <span class="close" onclick="close_modal()">&times;</span>
+            <h2>Cart</h2>
+        </div>
+
+        <!----------------------Modal Body --------------------------->
+        <div class="modal-body">
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+                
+            </div>
+
+            <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price total-price"  id="total-priceID">MMK 0</span>
+            </div>
+        </div>
+    <!----------------------Modal Body 2 --------------------------->
+    <div class="modal-body2">
+        <span class = "cart-header" >Select Your Delivery Time</span>
+        <br></br>
+        <form class="form-horizontal"  role="form">
+            <div class="form-group">
+                <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                    <input id = 'target'class="form-control" size="16" type="text" value="" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+            </div>
+        </form>
+        <input style = "margin-left: 24%"class="btn btn-primary btn-purchase" type="submit" value="Check Out" onclick="ValidateCart();">
+        <input style = "margin-left: 10%" class="btn btn-primary btn-cancelDelivery" type="submit" value="Cancel Delivery">
+    </div>
+
+    <!----------------------Modal Footer --------------------------->
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div> 
+</ul>
+</nav>
+
+
+<body>
+    <button onclick = "topFunction()" id="myBtn" title="Go Home">go top</button>
+    <div class="alert-message-container">
+    </div>
+    <div id="alert-area" class="alert-area">
+    </div>
+    <p id="p1"> The products of this website are from these restaurants</p>
+    <div id="mcdonalds" class="bio">
+        <img id="md_logo" class="logo" src="Pictures/Logos/m_logo.png" height="150px" width="150px">
+        <p id="mcdonalds_bio" class="biop">
+            McDonald's is an American fast food company, founded in 1940 as a restaurant operated by Richard and Maurice McDonald,
+            in San Bernardino, California, United States. They rechristened their business as a hamburger stand.
+            The first time a McDonald's franchise used the Golden Arches logo was in 1953 at a location in Phoenix, Arizona.
+            In 1955, Ray Kroc, a businessman, joined the company as a franchise agent and proceeded to purchase the chain from the McDonald brothers.
+            McDonald's had its original headquarters in Oak Brook, Illinois, but has approved plans to move its global headquarters to Chicago by 2018.
+        </p>
+    </div>
+
+    <div id="seasons" class="bio">
+        <img id="seasons_logo" class="logo" src="Pictures/Logos/seasons_logo.png" height="150px" width="150px">
+        <p id="seasons_bio" class="biop">
+            Seasons bakery is one of the largest and most successful bakeries in Myanmar, with 17 stores located across the country.
+            Seasons bistro, which is the latest labeled store opened offers varieties of bread, cakes and drinks having a very high quality.
+        </p>
+    </div>
+
+    <div id="subway" class="bio">
+        <img id="subway_logo" class="logo" src="Pictures/Logos/subway-logo-new1.png" height="150px" width="150px">
+        <p id="subway_bio" class="biop">
+            Subway is a privately held American fast food restaurant franchise that primarily purveys submarine sandwiches (subs) and salads.
+            Subway is one of the fastest-growing franchises in the world and, as of June 2017, has approximately 45,000 stores located in more than 100 countries.
+            More than half of the stores are located in the United States.
+            It is the largest single-brand restaurant chain and the largest restaurant operator in the world.
+        </p>
+    </div>
+
+    <div id="arbys" class="bio">
+        <img id="arbys_logo" class="logo" src="Pictures/Logos/Arbys_logo.jpg" height="150px" width="150px">
+        <p id="arbys_bio" class="biop">
+            Arby's is the second-largest quick-service fast-food sandwich restaurant chain in America in terms of units with
+            more than 3,300 restaurants system wide and third in terms of revenue. In October 2017, Food & Wine called
+            Arby's "America's second largest sandwich chain (after Subway)".
+            <br/>
+            Arby's is owned by Inspire Brands, the renamed Arby's Restaurant Group, Inc.(ARG). ARG was renamed as the company
+            took over ownership of Buffalo Wild Wings on February 5, 2018.
+        </p>
+    </div>
+
+   <div id="burgerking" class="bio">
+       <img id="burgerking_logo" class="logo" src="Pictures/Logos/burger_king.png" height="150px" width="150px">
+       <p id="burgerking_bio" class="biop">
+           Burger King (BK) is an American global chain of hamburger fast food restaurants.
+           Headquartered in the unincorporated area of Miami-Dade County, Florida, the company was founded in 1953 as Insta-Burger King,
+           a Jacksonville, Florida-based restaurant chain. After Insta-Burger King ran into financial difficulties in 1954,
+           its two Miami-based franchisees David Edgerton and James McLamore purchased the company and renamed it "Burger King".
+           <br/>
+           Over the next half-century, the company would change hands four times, with its third set of owners, a partnership of TPG Capital,
+           Bain Capital, and Goldman Sachs Capital Partners, taking it public in 2002. In late 2010, 3G Capital of Brazil acquired a majority stake in the company,
+           in a deal valued at US$3.26 billion. The new owners promptly initiated a restructuring of the company to reverse its fortunes.
+       </p>
+   </div>
+
+
+</body>
+
+<footer>
+   <script type="text/javascript">
+    var modal = document.getElementById("myModal");
+    localStorage.setItem('noti-tprice',"checked");
+
+    $('.form_datetime').datetimepicker({
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+    showMeridian: 1
+    });
+
+    $('.form_date').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+    });
+
+    $('.form_time').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+    });
+
+  </script>
+
+    <p>&copy; 2018 Copyright  by FOOD Delivery </p>
+</footer>
+</html>

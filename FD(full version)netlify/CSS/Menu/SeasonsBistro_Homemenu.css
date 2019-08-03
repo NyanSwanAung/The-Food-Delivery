@@ -1,0 +1,319 @@
+header {
+	border: silver solid 1.5px;
+}
+
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: #009d83;
+	color: white;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 4px;
+}
+
+#myBtn:hover {
+	background-color: #555;
+}
+
+/************** Restaurant Name on menu image glow effect**************/
+.glow {
+	font-size: 45px;
+	font-family: 'Work Sans';
+	/*font-family: 'Poppins';*/
+	color: #fff;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+	from {
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073,
+			0 0 60px #e60073, 0 0 70px #e60073;
+	}
+
+	to {
+		text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6,
+			0 0 70px #ff4da6, 0 0 80px #ff4da6;
+	}
+}
+
+.layout {
+	border: 2px solid black;
+	margin: 20px;
+	border-color: black;
+	border-radius: 25px;
+	width: 255px;
+	height: 600px;
+	padding: 0px;
+	background: #f2f3f4;
+}
+
+.p1 {
+	color: grey;
+	text-align: center;
+	padding: 20px;
+	font-size: 16px;
+}
+img.imground {
+	border-top-right-radius: 25px;
+	border-top-left-radius: 25px;
+}
+
+.time-hover:hover .imground {
+	opacity: 0.4;
+}
+.time-hover:hover .textT {
+	opacity: 1;
+	font-weight: 50em;
+}
+.time-hover {
+	position: relative;
+}
+.textT {
+	font-size: 20px;
+	transition: .3s ease;
+	color: black;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-weight: 50em;
+	transform: translate(-50%, -50%);
+}
+
+.layout-container {
+	text-align: justify;
+	display: flex;
+	justify-content: center;
+	margin: 0% 0 0 0;
+}
+
+.main-container {
+}
+
+.name {
+	color: black;
+	font-size: 25px;
+	top: 20%;
+	padding: 5px;
+	text-align: center;
+	margin-top: 15px;
+	color: black;
+}
+
+.name:hover {
+	color: #f13c9e;
+}
+
+.price {
+	padding: 5px;
+	color: #f08720;
+	text-align: center;
+}
+
+.title {
+	background-color: #d3d3d3;
+	color: #555555;
+
+	border-radius: 5px;
+
+	font-size: 13px;
+	text-align: center;
+	padding: 5px;
+	display: table;
+
+	margin: 0 auto;
+}
+.od {
+	width: 100px;
+	text-align: center;
+	color: white;
+	font: fantasy;
+	padding: 10px;
+	border-radius: 20px;
+	margin: 0 auto;
+	background: orange;
+	cursor: pointer;
+}
+.od:hover {
+	background: #ff7043;
+}
+
+.checked {
+	color: orange;
+}
+
+/*************Footer text and icons**************/
+#footer-t1 {
+	margin-left: 30%;
+	margin-bottom: -19px;
+}
+#footer-t2 {
+	margin-left: 59.5%;
+	margin-top: -14px;
+}
+#footer-t3 {
+	margin-left: 29%;
+}
+.icon_btn1 {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: #f1f1f1;
+	margin: 10px;
+	border-radius: 30%;
+	box-shadow: 0 5px 15px -5px #00000070;
+	color: black;
+	overflow: hidden;
+	position: relative;
+	align-items: center;
+}
+.icon_btn1 i {
+	line-height: 45px;
+	font-size: 26px;
+	transition: 0.2s linear;
+}
+.icon_btn1:hover i {
+	transform: scale(1.3);
+	color: black;
+}
+.icon_btn1::before {
+	content: "";
+	position: absolute;
+	width: 120%;
+	height: 120%;
+	background: #3498db;
+	transform: rotate(45deg);
+	left: -110%;
+	top: 90%;
+}
+.icon_btn1:hover::before {
+	animation: aaa 0.7s 1;
+	top: -10%;
+	left: -10%;
+}
+.icon-container {
+	padding: 0px;
+	margin-top: 80px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	text-align: center;
+}
+
+/*************For top recommendation, food name, price, add to cart and hover animation **************/
+.top-recom-text {
+	text-align: center;
+	font-family: "";
+	color: #f13c9e;
+	font-size: 2.2em;
+	padding: 4% 0 4% 0;
+	opacity: 0.6;
+	margin-top: -1.5%;
+}
+
+.top-recom-container {
+	/* background: #efeff5; */
+	position: absolute;
+	width: 100%;
+	height: 61.5%;
+	margin-top: 8.5%;
+	align-items: center;
+	text-align: center;
+}
+
+.recom-food-container {
+	position: relative;
+	width: 300px;
+	height: 350px;
+	margin-left: 120px;
+	float: left;
+}
+
+.recom-food-image {
+	opacity: 1;
+	width: 700px;
+	height: 350px;
+	display: block;
+	width: auto;
+	height: auto;
+	transition: .5s ease;
+	backface-visibility: hidden;
+	border-radius: 25px;
+}
+
+.time-container {
+	background-color: dodgerblue;
+	opacity: 0;
+	transition: .5s ease;
+	transform: translate(-10%, -10%) rotate(40deg);
+	-ms-transform: translate(-10%, -10%) rotate(40deg);
+	-webkit-transform: rotate(40deg);
+	position: absolute;
+	top: 12.5%;
+	width: 35%;
+	left: 67%;
+	rotate: 60deg;
+}
+
+.textBtn-container {
+	top: 35.5%;
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+	align-items: center;
+	width: 60%;
+	margin-left: 50%;
+}
+
+.recom-food-container:hover .recom-food-image {
+	opacity: 0.3;
+}
+
+.recom-food-container:hover .textBtn-container {
+	opacity: 1;
+}
+
+.recom-food-container:hover .time-container {
+	opacity: 1;
+}
+
+.recom-text-cart {
+	background-color: #4caf50;
+	color: white;
+	font-size: 16px;
+	padding: 5px;
+	margin-top: 5px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.recom-food-name {
+	color: black;
+	font-size: 18px;
+	top: 20%;
+	padding: 5px;
+	text-align: center;
+	margin-top: 15px;
+	color: black;
+	transition: .5s ease;
+}
+
+.recom-food-name:hover {
+	color: #f13c9e;
+}
+.recom-food-price {
+	padding: 5px;
+	color: #f08720;
+}

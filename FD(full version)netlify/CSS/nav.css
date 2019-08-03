@@ -1,0 +1,121 @@
+nav {
+	padding: 1.2%;
+	display: block;
+	overflow: hidden;
+	font-size: 1.26em;
+	font-family: "Lucida Grande", "Helvetica Nueue", Arial, sans-serif;
+	background-color: #009d83;
+	transition: top 0.3s;
+	color: #fff;
+	margin: 0;
+}
+
+nav a {
+	text-decoration: none;
+	font-weight: bold;
+	width: 100%;
+}
+
+nav a:link {
+	color: white;
+}
+nav a:visited {
+	color: white;
+}
+
+nav ul {
+	padding: 0;
+	list-style: none;
+}
+nav ul li {
+	margin: 0;
+	display: inline-block;
+	list-style-type: none;
+	transition: all 0.2s;
+}
+
+nav > ul > li > a {
+	color: #aaa;
+	display: block;
+	line-height: 2em;
+	padding: 0.5em 2em;
+	text-decoration: none;
+}
+
+nav li > ul {
+	display: none;
+	margin-top: 1px;
+	background-color: #34342e;
+}
+
+nav li > ul li {
+	display: block;
+}
+
+nav li > ul li a {
+	color: #111;
+	display: block;
+	line-height: 2em;
+	padding: 0.5em 2em;
+	text-decoration: none;
+}
+
+nav li:hover {
+	background: transparent;
+	opacity: 0.5;
+
+	/*	background-color: #0e0e0d; */
+}
+nav li:hover > ul {
+	background: green;
+	opacity: 50%;
+	position: absolute;
+	display: block;
+}
+nav li > ul > li ul {
+	background: green;
+	opacity: 50%;
+	display: none;
+	background-color: #888;
+}
+nav li > ul > li:hover > ul {
+	background: green;
+	opacity: 50%;
+	position: absolute;
+	display: block;
+	margin-left: 100%;
+	margin-top: -3em;
+}
+#nav_ul {
+	margin: -1% 0% -1% 0%;
+}
+
+.shopping_cart_icon {
+	position: relative;
+}
+
+.shopping_cart_icon:before {
+	content: "\f217";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	color: #000;
+	font-size: 27px;
+	padding-right: 0.5em;
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+
+.badge {
+	position: absolute;
+	top: 5px;
+	right: 81%;
+	padding: 1px 4px -1px 4px;
+	font-size: 15px;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+}

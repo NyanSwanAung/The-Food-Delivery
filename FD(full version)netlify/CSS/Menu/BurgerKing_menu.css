@@ -1,0 +1,22 @@
+/************** Restaurant Name on menu image glow effect**************/
+.glow {
+	font-size: 45px;
+	font-family: 'Work Sans';
+	/*font-family: 'Poppins';*/
+	color: #fff;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+	from {
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7b00, 0 0 40px #ff7b00, 0 0 50px #ff7b00,
+			0 0 60px #ff7b00, 0 0 70px #ff7b00;
+	}
+
+	to {
+		text-shadow: 0 0 20px #fff, 0 0 30px #ffa500, 0 0 40px #ffa500, 0 0 50px #ffa500, 0 0 60px #ffa500,
+			0 0 70px #ffba00, 0 0 80px #ffba00;
+	}
+}

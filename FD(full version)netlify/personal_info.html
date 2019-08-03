@@ -1,0 +1,54 @@
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <center>
+        <h1>Page 2</h1> <hr>
+    </center>
+</head>   
+<body>
+    First Name : <span id= "FNid"></span><br>
+    Last Name : <span id= "LNid"></span><br>
+    Ph1 : <span id= "P1id"></span><br>
+    Ph2 : <span id= "P2id"></span><br>
+    Location Type : <span id= "Lid"></span><br>
+    Address No : <span id= "Aid"></span><br>
+    City : <span id= "Cid"></span><br>
+    Township : <span id= "Tid"></span><br>
+
+    <br><br><br>
+    <a href = "home.html" class="button-text" onclick="localStorage.clear();sessionStorage.clear();">Go to main page</a>
+    
+</body>   
+
+<style>
+
+.button-text {
+	font-size: 1em;
+	color: white;
+	opacity: 0.8;
+	text-align: center;
+	background-color:dodgerblue;
+	padding: 5px 14px 5px 14px;
+	text-decoration: none;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.button-text:hover {
+	opacity: 1;
+}
+</style>
+<script type="text/javascript">
+    document.getElementById("FNid").innerHTML = sessionStorage.getItem("Fname");
+    document.getElementById("LNid").innerHTML = sessionStorage.getItem("Lname");
+    document.getElementById("P1id").innerHTML = sessionStorage.getItem("Ph1");
+    document.getElementById("P2id").innerHTML = sessionStorage.getItem("Ph2");
+    document.getElementById("Lid").innerHTML = sessionStorage.getItem("SelectBox");
+    document.getElementById("Aid").innerHTML = sessionStorage.getItem("Address");
+    document.getElementById("Cid").innerHTML = sessionStorage.getItem("City");
+    document.getElementById("Tid").innerHTML = sessionStorage.getItem("Township");
+
+    
+</script>
+</head>
+</html>
+
+

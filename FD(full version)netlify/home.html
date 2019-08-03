@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/nav.css">
+    <link rel="stylesheet" type="text/css" href="CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="CSS/home.css">
+    <link rel="stylesheet" type="text/css" href="CSS/find_us.css">
+    <link rel="stylesheet" type="text/css" href="CSS/shopping_cart_dialog.css">
+    <link rel="stylesheet" type="text/css" href="CSS/iconstyle.css">
+
+    <script type = "text/javascript" src="Javascripts/home.js" ></script>
+    <script type = "text/javascript" src="Javascripts/Shopping_cart.js" async ></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Bootstrap  -->  
+    <link href="bootstrap/v3/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/barn/0.2.3/barn.min.js"></script>
+    <script type="text/javascript" src="bootstrap/v3/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/v3/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    <title>Home</title>
+</head>
+
+<header>
+    <img src="Pictures/Headers/Header_white.png" width = "100%"/>
+</header>
+
+<nav>
+    <ul id="nav_ul">
+          <li><a class="nav_text" href="home.html">Home</a></li>
+          <li><a class="nav_text" onclick = "ValidateLocation();" href="#">Menu</a></li>
+          <li><a class="nav_text" onclick = 'passDate();' href="company.html">Restaurants</a></li>
+          <li><a class="nav_text" href="#find">Find us</a></li>
+          <li><a class="nav_text" href="#contact">Contact us</a></li>
+          <li><a class = "shopping_cart_icon" onclick="show_modal()" href="#"><span class="badge">0</span>Shopping Cart</a></li>
+
+      <!------------------------ The Modal ------------------------------>
+      <div id="myModal" class="modal">
+          <div class="modal-content">
+              <!----------------------Modal Header --------------------------->
+              <div class="modal-header">
+                  <span class="close" onclick="close_modal()">&times;</span>
+                  <h2>Cart</h2>
+              </div>
+
+              <!----------------------Modal Body --------------------------->
+              <div class="modal-body">
+                  <div class="cart-row">
+                      <span class="cart-item cart-header cart-column">ITEM</span>
+                      <span class="cart-price cart-header cart-column">PRICE</span>
+                      <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                  </div>
+                  <div class="cart-items">
+                    
+                  </div>
+                  <div class="cart-items">
+                  </div>
+                  <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">MMK 0</span>
+                  </div>
+              </div>
+              <!----------------------Modal Body 2 --------------------------->
+              <div class="modal-body2">
+                <span class = "cart-header" >Select Your Delivery Time</span>
+                <br></br>
+                <form class="form-horizontal"  role="form">
+                  <div class="form-group">
+                      <div class="input-group date form_datetime col-md-5" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                          <input id = "tdyDate" class="form-control" size="16" type="text" value="" readonly>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                      </div>
+                  </div>
+                </form>
+                <input style = "margin-left: 24%" class="btn btn-primary btn-purchase" type="submit" value="Check Out" onclick="ValidateCart();">
+                <input style = "margin-left: 10%" class="btn btn-primary btn-cancelDelivery" type="submit" value="Cancel Delivery">
+              </div>
+          </div>
+      </div> 
+    </ul>
+</nav>
+
+
+<body>
+    <button onclick = "topFunction()" id="myBtn" title="Go Home">go top</button>
+    <div id="slider">
+      <div id="box">
+        <img src="Pictures/Homepage/main1_uneditited.jpg" height="700px" width="100%">
+      </div>
+  
+      <!-- buttons for controls slider -->
+      <button class="prew fa fa-chevron-left button_LR" onclick="prewImage()"></button>
+      <button class="next fa fa-chevron-right button_LR" onclick="nextImage()"></button>
+    </div>
+    
+    <div class="alert-message-container">
+    </div>
+    <div id="alert-area" class="alert-area">
+    </div>
+    <div class="selectWrapper"> 
+        <select id="selectbox" onchange="location = this.options[this.selectedIndex].value; passDate();getLocation()">
+          <option value=""disabled selected>Choose your location</option>
+          <option value="Subway_menu.html">Kamayut - Delivery Charges (2000 MMK)</option>
+          <option value="BurgerKing_menu.html">Insein - Delivery Charges (2500 MMK)</option>
+          <option value="McDonalds_menu.html">Dagon - Delivery Charges (3000 MMK)</option>
+          <option value="Arbys_menu.html">SanChaung - Delivery Charges (3500 MMK)</option>
+        </select>
+    </div>
+    <div class="border1">
+        <blockquote id="best_sellers"> BEST SELLERS</blockquote>
+        <div class="food_container" style="margin-left: 11%" >
+          <img src="Pictures/Homepage/hotdog2.jpg" alt="Hot Dog" class="food_image" style="width:100%">
+          <div class="container2">
+              <div class="time-container"><span style="color: white">30 mins</span></div>
+              <div class="food_price">MMK 3000</div> 
+              <div class="addToCart_btn text-cart">Add To Cart</div>
+          </div>     
+          <div><blockquote class="food_name">British Style Hotdog</blockquote></div>
+          <div style="margin-left: 32.5%">
+              
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+          </div>
+        </div>
+        <div class="food_container">
+          <img src="Pictures/Homepage/fish_and_chips.jpg" alt="Crispy Fish and Chips" class="food_image" style="width:100%">
+          <div class="container2">
+            <div class="time-container"><span style="color: white">30 mins</span></div>
+            <div class="food_price">MMK 3500</div>
+            <div class="addToCart_btn text-cart">Add To Cart</div>
+          </div>  
+          <div><blockquote class="food_name">Crispy Fish and Chips</blockquote></div>
+          <div style="margin-left: 32.5%">
+              
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+          </div>
+        </div>
+        <div class="food_container">
+          <img src="Pictures/Homepage/tuna_sandwich.jpg" alt="Double Cheesy Tuna Sandwich" class="food_image" style="width:100%">
+          <div class="container2">
+            <div class="time-container"><span style="color: white">30 mins</span></div>
+            <div class="food_price">MMK 2500</div>
+            <div class="addToCart_btn text-cart">Add To Cart</div>
+          </div>            
+          <div><blockquote class="food_name">Cheesy Tuna Sandwich </blockquote></div>
+          <div style="margin-left: 32.5%">
+            
+            <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+          </div>
+        </div>
+    </div>    
+    <br/><br/>
+  
+</body>
+
+
+<footer>
+  <div class="how_to_order">
+      <img src="Pictures/Homepage/how_to_order.jpg" width = "100%"/>
+  </div>
+
+  <div id="find">
+    <div class="contact">
+      <div style="flex-grow:7">
+        <article id="map_text">
+              Here is the location map for our customers to find easily. 
+        </article>
+        <br>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61108.531023954616!2d96.11517369928617!3d16.812301600740025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1eb5b02f418bf%3A0xac94fe8dac6296c7!2sSharky&#39;s!5e0!3m2!1sen!2smm!4v1560575452284!5m2!1sen!2smm" width="100%" height="450"  frameborder="0" style="border:0" allowfullscreen></iframe>
+
+      </div>
+        <div style="flex-grow: 3">
+          <div id="text_border">  
+            <article id="visit_us_text"> -  V i s i t  - </article><br />
+              <i id="location_text1"> 21<sup>st</sup>Street, Dhamam Seti Road,Yangon</i><br />
+              <i id="location_text2"> M-F: 9am-9pm </i>
+              <i id="location_text3"> Sat: 10am-10pm</i>
+              <i id="location_text4" >Closed Sunday</i>    
+          </div>
+        </div>
+    </div>
+  </div>  
+
+
+  <div id="contact">
+  
+    <blockquote id="footer_contact_us">-  CONTACT US  -  </blockquote>
+    <article>For questions about our products or help with your order,don't hesitate to contact us:</article>
+    <b style="margin-left: 6.5%"><i>Email:nyanswanaung@uit.edu.mm /  Phone: +959  766102646</i></b>
+    
+    <div class="icon-container">
+        <a target="_blank" class="icon_btn" href="https://twitter.com/TDeli2019/"> <i class="fa fa-twitter"></i></a>
+        <a target="_blank" class="icon_btn" href="https://www.instagram.com/thefooddeli19/"> <i class="fa fa-instagram"></i></a>
+        <a target="_blank" class="icon_btn" href="https://facebook.com"> <i class="fa fa-facebook"></i></a>
+    </div>
+    
+
+    <form target="_blank" action="aa.html" method="get">
+        <input id="form_name" type="text" maxlength="100" size="115%"  placeholder="Name*"  name="name"  />
+        <input id="form_email" type="email" maxlength="100" size="115%"  placeholder="Email*"  name="email"  />
+        <input id="form_message" type="text"  maxlength="1000" size="115%" placeholder="Message" name="message" />
+        <input id="form_send" type="submit" onclick="getTextBox_value()" value="Send"  size="20%"  />
+    </form>
+  </div>
+  
+  <p>&copy; 2018 Copyright  by  The FOOD Delivery </p>
+
+
+</footer>
+
+
+<script type="text/javascript">
+  var modal = document.getElementById("myModal");
+  var slider_content = document.getElementById('box');
+  localStorage.setItem('noti-tprice','checked')
+  setTdyDate();
+
+  if(localStorage.getItem("dateChange") == '1'){
+    UpdateDate();
+  }
+  
+  $('.form_datetime').datetimepicker({
+      
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+    showMeridian: 1,
+    });
+  $('.form_date').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0,
+    });
+  $('.form_time').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0,
+    });
+
+  function ValidateCart() { // Validate check out button , when user click check out button, show alert when there is no item in cart
+      if (localStorage.getItem('quantityTotal-global') == null || localStorage.getItem('quantityTotal-global') == '0') {
+        alert('Your cart is empty. \n Please add some food items before you check out.');
+      } else if (localStorage.getItem('quantityTotal-global') >= 1) {
+        
+          if (sessionStorage.getItem('user-location') == null) {
+            alert('Please enter your location first');
+          } else {
+              location.href = 'checkout.html';
+              passDate();
+            }
+      }
+  }
+  function passDate(){      // set tdy date in local storage
+      var time = document.getElementById('tdyDate').value;
+      sessionStorage.setItem('Delivery-Time', time);
+    }
+  function setTdyDate(){
+    
+  Date.prototype.getCurrentTime = function() {
+  return (
+    (this.getHours() < 10 ? '0' : '') +
+    (this.getHours() > 12 ? this.getHours() - 12 : this.getHours()) +
+    ':' +
+    (this.getMinutes() < 10 ? '0' : '') +
+    this.getMinutes() +
+    ':' +
+    (this.getHours() > 12 ? ' PM' : ' AM')
+  );
+};
+
+  var today = new Date(); //date object
+  var current_date = today.getDate();
+  var current_month = today.getMonth() + 1; //Month starts from 0
+  var current_year = today.getFullYear();
+  var current_time = today.getCurrentTime();
+  var tdyDate = current_date + '/' + current_month + '/' + current_year + ' - ' + current_time;
+  document.getElementById('tdyDate').value = tdyDate;
+  
+}
+  function UpdateDate(){      // get date from local storage and set in caldendar
+  var time  =  sessionStorage.getItem("Delivery-Time");
+  document.getElementById('tdyDate').value = time;
+  }
+  function ValidateLocation() {
+  // see if the user has enter his location
+    passDate();
+	if (sessionStorage.getItem('user-location') == null) {
+		alert('Please enter your location first');
+	} else {
+		location.href = 'Menu/SeasonsBistro_Homemenu.html';
+	}
+}
+
+
+</script>
+</html>

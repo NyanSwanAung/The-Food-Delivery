@@ -1,0 +1,186 @@
+header {
+	border: silver solid 1.5px;
+}
+#best_sellers {
+	text-align: center;
+	font-family: "Lucida Sans";
+	color: #f13c9e;
+	font-size: 2.2em;
+	text-emphasis: circle;
+	margin-top: 4%;
+	padding: 4% 0 4% 0;
+	opacity: 0.6;
+}
+
+.addToCart_btn {
+	background-color: transparent;
+}
+
+/************** Button to scroll top of the home page **************/
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: #009d83;
+	color: white;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 4px;
+}
+
+#myBtn:hover {
+	background-color: #555;
+}
+
+#selectWrapper {
+	border-radius: 36px;
+	display: inline-block;
+	overflow: hidden;
+	background: #cccccc;
+	border: 1px solid #cccccc;
+}
+
+#selectbox {
+	background: white;
+	width: 600px;
+	padding: 4px 0;
+	height: 35px;
+	position: absolute;
+	left: 50%;
+	top: 75%;
+	transform: translateX(-50%) translateY(-50%);
+	border: 0px;
+	outline: none;
+}
+
+.img {
+	width: 100%;
+	height: 700px;
+}
+
+#slider {
+	width: 100%;
+	height: 80%;
+	margin-bottom: 40%;
+	position: relative;
+}
+
+.button_LR {
+	padding: 20px;
+	border: none;
+	background: #37f;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	top: 45%;
+	cursor: pointer;
+}
+
+.next {
+	border-radius: 10px 0px 0px 10px;
+	margin-left: 92%;
+}
+.prew {
+	border-radius: 0px 10px 10px 0px;
+	margin-left: 4%;
+}
+
+.STt {
+	margin-top: 150px;
+}
+/*************For best seller images, food name, price, add to cart and hover animation **************/
+.food_container {
+	position: relative;
+	width: 300px;
+	height: 350px;
+	margin-left: 120px;
+	float: left;
+}
+
+.food_image {
+	opacity: 1;
+	width: 300px;
+	height: 350px;
+	display: block;
+	width: auto;
+	height: auto;
+	transition: .5s ease;
+	backface-visibility: hidden;
+}
+
+.container2 {
+	top: 50%;
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+	align-items: center;
+	width: 60%;
+	margin-left: 50%;
+}
+
+.food_container:hover .food_image {
+	opacity: 0.3;
+}
+
+.food_container:hover .container2 {
+	opacity: 1;
+}
+
+.food_container:hover .time-container {
+	opacity: 1;
+}
+
+.text-cart {
+	background-color: #4caf50;
+	color: white;
+	font-size: 16px;
+	padding: 5px;
+	margin-top: 5px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.food_name {
+	color: black;
+	font-size: 18px;
+	top: 20%;
+	padding: 5px;
+	text-align: center;
+	margin-top: 15px;
+	color: black;
+	transition: .5s ease;
+}
+
+.food_name:hover {
+	color: #f13c9e;
+}
+.food_price {
+	padding: 5px;
+	color: #f08720;
+	font-weight: 50em;
+}
+.time-container {
+	background-color: dodgerblue;
+	opacity: 0;
+	transition: .5s ease;
+	transform: translate(-10%, -10%) rotate(40deg);
+	-ms-transform: translate(-10%, -10%) rotate(40deg);
+	-webkit-transform: rotate(40deg);
+	position: absolute;
+	top: -160%;
+	width: 64%;
+	left: 71%;
+	rotate: 60deg;
+}
+
+.checked {
+	color: orange;
+}
