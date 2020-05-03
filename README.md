@@ -1,6 +1,6 @@
 ## About
 
-  Submitted in 2018, my second year project at my university
+  Submitted in 2019, my second year group project at my university
 
 
 ## Description
