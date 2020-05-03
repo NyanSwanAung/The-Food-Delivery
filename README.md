@@ -1,12 +1,6 @@
 ## About
 
   Submitted in 2019, my second year group project at my university
-
-
-## Description
-
-  A food delivery serice that searches the best restarurants for you, based on your location and you can only order the food items from your nearby restaurants. 
-  
   
 <p align="center">
   <a href="https://github.com/NyanSwanAung">Nyan Swan Aung</a> •
@@ -17,3 +11,11 @@
   <a href="https://www.facebook.com/wai.linlet">Lin Let Wai </a> •
   <a href="">Thant Thazin Eain </a> 
 </p>
+
+
+## Description
+
+  A food delivery serice that searches the best restarurants for you, based on your location and you can only order the food items from your nearby restaurants. 
+  
+  
+
