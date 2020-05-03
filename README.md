@@ -14,5 +14,6 @@
   <a href="https://www.facebook.com/monezwe.minn.7">Zwe Thant T </a> •
   <a href="https://www.facebook.com/pinkypie.alice">Hsu Myat Than Sin </a> •
   <a href="https://www.facebook.com/profile.php?id=100026201902471">Khine Zin Nyunt</a> •
-  <a href="https://www.facebook.com/wai.linlet">Lin Let Wai </a> 
+  <a href="https://www.facebook.com/wai.linlet">Lin Let Wai </a> •
+  <a href="">Thant Thazin Eain </a> 
 </p>
